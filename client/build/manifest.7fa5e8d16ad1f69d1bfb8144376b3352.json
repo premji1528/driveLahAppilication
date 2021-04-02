@@ -1,0 +1,41 @@
+{
+  "icons": [
+    {
+      "src": "icon_512x512.de46a22b82b9d275874fb7e4cc1f2982.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_384x384.b518ffe5991fc29bce9aa710977c76f1.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_256x256.d383812d17484c5ac0275e37a23e38f1.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_192x192.ff055682b051ba8e6de956e038d85384.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_128x128.4ad25cbda7d67fc54bc03999b247f287.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_96x96.e8a4c4ba0df6f3ca974cf7de01b028e5.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Demo Of Progressive Web App",
+  "short_name": "Demo PWA",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "My awesome Progressive desc!",
+  "background_color": "#1C78C0"
+}
