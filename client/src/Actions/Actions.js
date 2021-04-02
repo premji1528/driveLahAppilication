@@ -1,0 +1,1 @@
+export const TEST_AUTH = "TEST_AUTH"
