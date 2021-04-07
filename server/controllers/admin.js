@@ -24,7 +24,7 @@ const getAllLeadCollections = async (req, res) => {
             return leads;
         });
 
-        return res.status(200).json({ success: true, message:'Leads Fetched SuccessFully!', data: ListOfLeads });
+        return res.status(200).json({ success: true, message: 'Leads Fetched SuccessFully!', data: ListOfLeads });
     } catch (error) {
         return res.status(400).json({ success: false, message: error });
     }
@@ -33,20 +33,23 @@ const getAllLeadCollections = async (req, res) => {
 const downloadLeads = async (req, res) => {
     try {
         let LeadCollections = [];
-        
+
         await models.Leads.find({}, function (err, leads) {
-            LeadCollections = leads.map((lead) => ({
-                FullName: lead.fullname,
-                Email: lead.email,
-                Message: lead.message,
-                contactedOn: lead.createdAt
-            }));
+            leads.map((lead) => {
+                LeadCollections.push({
+                    FullName: lead.fullname,
+                    Email: lead.email,
+                    Message: lead.message,
+                    contactedOn: lead.createdAt
+                })
+            });
 
             return LeadCollections;
         });
 
         const fileName = 'leadReport ' + formateDate(new Date()) + '.csv';
         var ws = fileSystem.createWriteStream("files/" + fileName);
+        console.log('LeadCollections', LeadCollections)
         fastcsv
             .write(LeadCollections, { headers: true })
             .on("finish", function () {

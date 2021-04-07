@@ -85,6 +85,7 @@ function HomeComponent(props) {
             .catch(function (error) {
                 showNotification('error', 'Error!', 'Something went wrong!, Please try again later.');
             });
+            props.reset('_contactForm');
         } else {
             showNotification('warning', 'Warning!', 'Please check the values!');
         }
@@ -113,8 +114,8 @@ function HomeComponent(props) {
             .then(function (response) {
                 // handle success
                 console.log(response);
-                if(response && response.data) {
-                    SetAvailableCount(1);
+                if(response && response.data && response.data.data) {
+                    SetAvailableCount(response.data.data.length);
                 }
             })
             .catch(function (error) {
