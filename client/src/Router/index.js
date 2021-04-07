@@ -17,6 +17,7 @@ const AppRoute = props => {
             <Components>
                 <Switch>
                     <Route path="/" exact render={() => <HomeContainer {...props} testMsg={'DriveLah'} />} />
+                    <Route path="/home" exact render={() => <HomeContainer {...props} testMsg={'DriveLah'} />} />
                 </Switch>
             </Components>
         </Router>

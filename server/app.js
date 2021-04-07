@@ -1,5 +1,6 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
+  path = require('path'),
   cors = require("cors"),
   indexRouter = require('./routes/index'),
   app = express(),
@@ -19,11 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', indexRouter);
 app.use("/files", express.static(__dirname + "/files"));
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to drivelah application." });
-});
-
-
 const eraseDatabaseOnSync = false;
 
 connectDb().then(async () => {
@@ -34,10 +30,15 @@ connectDb().then(async () => {
   }
 });
 
+app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/public')));
 
-// set port, listen for requests
-const PORT = CONFIG.PORT || 3001;
-console.log('Port Check', PORT)
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+app.get('/*', function (request, res) {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), function (err) {
+      if (err) {
+          res.status(500).send(err)
+      }
+  })
+})
+
+module.exports = app;

@@ -12,7 +12,8 @@ const maxLength = max => value =>
 export const onlyString = (value, allValues, props, name) => (/\d/.test(value)) ? getFormattedFieldName(name) + ' must be a String' : undefined;
 
 export const minValue4 = minValue(4)
-export const maxLength80 = maxLength(80)
+export const maxLength222 = maxLength(222)
+export const maxLength22 = maxLength(22)
 
 export function getFormattedFieldName(field) {
   return field.replace(/([A-Z])/g, ' $1').trim();

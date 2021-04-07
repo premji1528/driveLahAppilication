@@ -1,8 +1,8 @@
 import React, { Component, useState, useReducer, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { Field, reduxForm, formValueSelector, getFormError, hasSubmitFailed, initialize, change } from 'redux-form';
-import { formValidator, required, maxLength80, minValue4, onlyString, email } from '../validation';
+import { Field, reduxForm } from 'redux-form';
+import { required, maxLength222, maxLength22, minValue4, onlyString, email } from '../validation';
 
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
@@ -72,7 +72,7 @@ function HomeComponent(props) {
                 message: values.Message
             };
             
-            axios.post(BaseURLBypass + 'api/leads/addContactUs', request)
+            axios.post('api/leads/addContactUs', request)
             .then(function (response) {
                 // handle success
                 const { data } = response;
@@ -109,7 +109,7 @@ function HomeComponent(props) {
     };
 
     const getAllLeadsData = () => {
-        axios.get(BaseURLBypass + 'api/admin/getAllLeads')
+        axios.get('api/admin/getAllLeads')
             .then(function (response) {
                 // handle success
                 console.log(response);
@@ -126,7 +126,7 @@ function HomeComponent(props) {
 
     const downloadAllCSV = () => {
         console.log('Download All CSV');
-        const downloadURL = BaseURLBypass+"api/admin/downloadAllLeads";
+        const downloadURL = "api/admin/downloadAllLeads";
         window.open(downloadURL, 'blank');
         // showNotification('success', 'Warning message', 'Close after 3000ms');
     };
@@ -158,9 +158,9 @@ function HomeComponent(props) {
                 </div>
 
                 <form className="contact100-form validate-form" onSubmit={props.handleSubmit(submitContactUs)}>
-                    <Field name="FullName" component={InputWrapper} type="text" placeholder="Enter full name" validate={[required, maxLength80, minValue4, onlyString]} />
+                    <Field name="FullName" component={InputWrapper} type="text" placeholder="Enter full name" validate={[required, minValue4, onlyString, maxLength22]} />
                     <Field name="Email" component={InputWrapper} type="email" placeholder="Enter email address" validate={[required, email]} />
-                    <Field name="Message" component={TextAreaWrapper} placeholder="Your Comment..." validate={[required]} />
+                    <Field name="Message" component={TextAreaWrapper} placeholder="Your Comment..." validate={[required, maxLength222]} />
 
                     <div className="container-contact100-form-btn">
                         <button className="contact100-form-btn">
