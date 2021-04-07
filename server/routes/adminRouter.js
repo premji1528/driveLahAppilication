@@ -4,7 +4,7 @@ const router = express.Router();
 
 const { getAllLeadCollections, downloadLeads } = require("../controllers/admin");
 
-router.get('/dowloadAllLeads', downloadLeads);
+router.get('/downloadAllLeads', downloadLeads);
 router.get('/getAllLeads', getAllLeadCollections);
 
 

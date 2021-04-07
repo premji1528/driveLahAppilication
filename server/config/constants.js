@@ -2,6 +2,6 @@
 
 module.exports = Object.freeze({
     CONFIG: {
-        PORT: 8080,
+        PORT: 3001,
     }
 });

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import TestReducer from './TestReducer';
+import HomeReducer from './HomeReducer';
 import { reducer as formReducer } from 'redux-form'
 
 let RootReducer = combineReducers({
-    testReducer: TestReducer,
+    homeReducer: HomeReducer,
     form: formReducer
 });
 

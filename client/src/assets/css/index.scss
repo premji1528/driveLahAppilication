@@ -229,7 +229,6 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
   margin-bottom: 26px;
 }
 
@@ -3440,4 +3439,37 @@ textarea.input100 {
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+}
+
+.input100 {
+	border-bottom: 1px solid #b2b2b2 !important;
+
+	&:active, &:focus {
+		border-bottom: 1px solid #b2b2b2 !important;
+	}
+  }
+
+  .download-button {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    background: #57b846;
+    padding: 2px 7px;
+    border-radius: 50px;
+	cursor: pointer;
+
+	.fa-download {
+		color: #fff;
+	}
+}
+
+.leadsCount {
+    position: absolute;
+    top: -7px;
+    right: -8px;
+    background-color: #f3f3f3;
+    padding: 3px 7px;
+    border-radius: 50px;
+    font-size: 8px;
+    font-weight: bold;
 }

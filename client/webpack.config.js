@@ -61,7 +61,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(jpe?g|png|svg)(\?[a-z0-9=.]+)?$/,
+                test: /\.(jpe?g|png|ttf|eot|woff|svg)(\?[a-z0-9=.]+)?$/,
                 loader: 'url-loader?limit=100000'
             }
         ]
@@ -98,8 +98,8 @@ module.exports = {
             threshold: 10240,
             minRatio: 0.8,
             deleteOriginalAssets: false,
-        }),
-        new BundleAnalyzerPlugin(),
+        })
+        // new BundleAnalyzerPlugin(),
     ],
         output: {
     filename: MODE ? "[name].bundle.min.js" : "[name].bundle.js",

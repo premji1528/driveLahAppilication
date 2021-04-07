@@ -39,6 +39,7 @@ const downloadLeads = async (req, res) => {
                 FullName: lead.fullname,
                 Email: lead.email,
                 Message: lead.message,
+                contactedOn: lead.createdAt
             }));
 
             return LeadCollections;

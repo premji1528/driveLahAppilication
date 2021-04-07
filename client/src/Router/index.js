@@ -16,7 +16,7 @@ const AppRoute = props => {
         <Router>
             <Components>
                 <Switch>
-                    <Route path="/" exact render={() => <HomeContainer testMsg={'Premji'} />} />
+                    <Route path="/" exact render={() => <HomeContainer {...props} testMsg={'DriveLah'} />} />
                 </Switch>
             </Components>
         </Router>
@@ -30,7 +30,7 @@ const AppRoute = props => {
 
 
 const mapStateToProps = (state) => ({
-    testState: state.testReducer,
+    home: state.homeReducer,
 })
 
 const mapDispatchToProps = (dispatch) => ({
